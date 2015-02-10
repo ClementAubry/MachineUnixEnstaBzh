@@ -13,6 +13,7 @@ wine
 nautilus-open-terminal
 guake (conf "²", S.Rohou)
 cmake
+ccmake
 cmake-gui
 gcc
 g++
@@ -46,6 +47,7 @@ SMB, FTP, SSH, TELNET, VNC, RDP
 *Robotique : (voir script install VM TP MOOS S.Rohou)
 moos-ivp
 ibex
+Eigen V3
 vibes
 morse
 blender
