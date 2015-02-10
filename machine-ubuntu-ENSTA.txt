@@ -1,7 +1,7 @@
 *Base : Ubuntu LTS desktop (gnome) en cours
 
 *Utilitaires : 
-ssh
+ssh, ssh-server
 stty
 git
 subversion
@@ -13,15 +13,35 @@ wine
 nautilus-open-terminal
 guake (conf "²", S.Rohou)
 cmake
+cmake-gui
 gcc
 g++
 synaptic
 vlc
-filezilla (ou autre)
+filezilla
 diff
 python
 ffmpeg
-cheese
+cheese #pour la visualisation webcam et camera usb, à tester avec Grabby/Grabbino (modprobe em28xx card=67 (ou autre chose que 67...)) etLogitech Webcam/Quickcam Pro 9000
+LibreOffice # on a besoin de Calc - ou autre tableur plus léger?)
+OpenCV 2.4.X # peut-on avoir 2 versions différentes et utiliser les 2 comme on veut et surtout facilement?
+libmodbus #support CISCREA
+samba smbfs nfs-common cifs #lecteurs réseaux
+valgrind
+OpenAL 1.1 SDK / free OpenAL # ??? pour faire de l'audio en C++ de manière assez simple et portable (FLB l'utilise plus ou moins sous Windows...)
+Audacity
+OLSRD # pour routage Wi-Fi en ad-hoc
+Google Earth
+Xsens SDK # ?
+
+bison flex m4 libgtkglext1-dev libglut3-dev plib1.8.4-dev libgtk2.0-dev libncurses-dev : pour utiliser QUIMPER (qPave, qTraj, qSolve d'IBEX 1.X) # A discuter? Quimper n'est-il pas mort?
+
+Java Development Kit # ?
+
+scilab/Matlab # ?
+
+*Serveurs :
+SMB, FTP, SSH, TELNET, VNC, RDP
 
 *Robotique : (voir script install VM TP MOOS S.Rohou)
 moos-ivp
@@ -29,8 +49,8 @@ ibex
 vibes
 morse
 blender
-qtcreator(4.xxx)#voir sur page L.Jaulin
+qtcreator(ftp://ftp.informatik.hu-berlin.de/pub/Linux/Qt/QT/qtsdk/qt-sdk-linux-x86_64-opensource-2010.05.bin)
 
-*A enlever : 
-LibreOffice
-Amazon (integration unity)
+*A enlever :
+Amazon # integration unity
+Unity # ? Sur ce point plusieurs écoles, @ FLB : je suis d'accord, unity lors de son lancement était vraiment NULL! Mais maintenant je m'y suis fait (14.04LTS) et ca passe bien... Point négociable ;)
