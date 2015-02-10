@@ -49,8 +49,7 @@ moos-ivp
 ibex
 Eigen V3
 vibes
-morse
-blender
+morse box #comprend : python, morse, blender, scipy/numpy/matplotlib/opencv 3 python/pyIbex
 qtcreator(ftp://ftp.informatik.hu-berlin.de/pub/Linux/Qt/QT/qtsdk/qt-sdk-linux-x86_64-opensource-2010.05.bin)
 
 *A enlever :
