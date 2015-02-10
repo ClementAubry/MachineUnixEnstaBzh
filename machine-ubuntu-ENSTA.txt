@@ -1,0 +1,36 @@
+*Base : Ubuntu LTS desktop (gnome) en cours
+
+*Utilitaires : 
+ssh
+stty
+git
+subversion
+sublime
+zsh
+gtkterm
+VirtualBox
+wine
+nautilus-open-terminal
+guake (conf "²", S.Rohou)
+cmake
+gcc
+g++
+synaptic
+vlc
+filezilla (ou autre)
+diff
+python
+ffmpeg
+cheese
+
+*Robotique : (voir script install VM TP MOOS S.Rohou)
+moos-ivp
+ibex
+vibes
+morse
+blender
+qtcreator(4.xxx)#voir sur page L.Jaulin
+
+*A enlever : 
+LibreOffice
+Amazon (integration unity)
