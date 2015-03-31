@@ -1,4 +1,4 @@
-*Base : Ubuntu LTS desktop (gnome) en cours
+*Base : Ubuntu LTS desktop (gnome+unity) en cours
 
 *Utilitaires : 
 ssh, ssh-server
@@ -6,7 +6,7 @@ stty
 git
 subversion
 sublime
-zsh
+zsh (oh-my-zsh!)
 gtkterm
 VirtualBox
 wine
@@ -45,6 +45,7 @@ scilab/Matlab # ?
 SMB, FTP, SSH, TELNET, VNC, RDP
 
 *Robotique : (voir script install VM TP MOOS S.Rohou)
+moos # Penser à mofifier MOOSLinuxSerialPort.cpp pour accepter le baudrate 57600 demandé par les modems tritech (https://github.com/themoos/core-moos/pull/16)
 moos-ivp
 ibex
 Eigen V3
