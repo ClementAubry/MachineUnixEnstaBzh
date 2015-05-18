@@ -1,4 +1,5 @@
 *Base : Ubuntu LTS desktop (gnome+unity) en cours
+C.A. ubuntu-14.04.2-desktop-i386
 
 *Utilitaires : 
 ssh, ssh-server
