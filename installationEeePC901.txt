@@ -1,0 +1,9 @@
+
+connexion ENSTA-B :
+
+Regler le proxy en manuel avec 192.168.1.10:3128 pour tous les protocols
+
+$sudo apt-get update
+$sudo apt-get upgrade
+
+$sudo apt-get install ssh git subversion zsh gtktermwine nautilus-open-terminal guake cmake ccmake cmake-gui g++ synaptic vlc filezilla diff python ffmpeg cheese libmodbus samba smbfs nfs-common cifs valgrind audacity oslrd bison flex m4 libgtkglext1-dev libglut3-dev plib1.8.4-dev libgtk2.0-dev libncurses-dev
