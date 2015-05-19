@@ -19,13 +19,13 @@ Regler le proxy en manuel avec 192.168.1.10:3128 pour tous les protocols
 
   $sudo apt-get -y --force-yes install ssh guake cmake cmake-qt-gui gcc g++ vlc subversion gtkterm nautilus-open-terminal filezilla synaptic cheese libmodbus5 libmodbus-dev cifs-utils nfs-common valgrind audacity olsrd olsrd-gui bison flex libgtkglext1-dev freeglut3-dev libplib-dev libgtk2.0-dev libncurses-dev virtualbox
 
-  sudo apt-get install wine # demande confirmation licence dans le shell et une autre question sur tts-mscorsfonts-installer. Verifier qu'avec -y et --force-yes ca passe
+  $sudo apt-get install wine # demande confirmation licence dans le shell et une autre question sur tts-mscorsfonts-installer. Verifier qu'avec -y et --force-yes ca passe
 
-wget http://c758482.r82.cf2.rackcdn.com/Sublime%20Text%202.0.2.tar.bz2
-tar xf Sublime\ Text\ 2.0.2.tar.bz2
-sudo mv Sublime\ Text\ 2 /opt/
-sudo ln -s /opt/Sublime\ Text\ 2/sublime_text /usr/bin/sublime
-sudo echo "[Desktop Entry]
+$wget http://c758482.r82.cf2.rackcdn.com/Sublime%20Text%202.0.2.tar.bz2
+$tar xf Sublime\ Text\ 2.0.2.tar.bz2
+$sudo mv Sublime\ Text\ 2 /opt/
+$sudo ln -s /opt/Sublime\ Text\ 2/sublime_text /usr/bin/sublime
+$echo "[Desktop Entry]
 Version=1.0
 Name=Sublime Text 2
 # Only KDE 4 seems to use GenericName, so we reuse the KDE strings.
@@ -42,5 +42,6 @@ X-Ayatana-Desktop-Shortcuts=NewWindow
 [NewWindow Shortcut Group]
 Name=New Window
 Exec=sublime -n
-TargetEnvironment=Unity" >> /usr/share/applications/sublime.desktop
+TargetEnvironment=Unity" >> sublime.desktop
 
+$sudo mv sublime.desktop /usr/share/applications/sublime.desktop
