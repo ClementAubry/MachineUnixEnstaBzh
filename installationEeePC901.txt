@@ -1,9 +1,46 @@
-
+# = commentaires
+$ = commande shell
 connexion ENSTA-B :
 
 Regler le proxy en manuel avec 192.168.1.10:3128 pour tous les protocols
 
-$sudo apt-get update
-$sudo apt-get upgrade
+  $sudo apt-get update
+  $sudo apt-get upgrade
 
-$sudo apt-get install ssh git subversion zsh gtktermwine nautilus-open-terminal guake cmake ccmake cmake-gui g++ synaptic vlc filezilla diff python ffmpeg cheese libmodbus samba smbfs nfs-common cifs valgrind audacity oslrd bison flex m4 libgtkglext1-dev libglut3-dev plib1.8.4-dev libgtk2.0-dev libncurses-dev
+#Installation git, zsh et oh-my-zsh avec config perso (C.A.)
+  $sudo apt-get install zsh git
+  $curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
+
+# récupération du fichier de config pour zsh (coloration, heure, plugin git et surtout bonne complétion)
+  $wget -O ~/.oh-my-zsh/themes/clemaubry.zsh-theme https://raw.githubusercontent.com/ClementAubry/MachineUnixEnstaBzh/master/clemaubry.zsh-theme
+
+  $sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="clemaubry' ~/.zshrc
+#Relancer le shell pour avoir zsh avec nouvelle conf
+
+  $sudo apt-get -y --force-yes install ssh guake cmake cmake-qt-gui gcc g++ vlc subversion gtkterm nautilus-open-terminal filezilla synaptic cheese libmodbus5 libmodbus-dev cifs-utils nfs-common valgrind audacity olsrd olsrd-gui bison flex libgtkglext1-dev freeglut3-dev libplib-dev libgtk2.0-dev libncurses-dev virtualbox
+
+  sudo apt-get install wine # demande confirmation licence dans le shell et une autre question sur tts-mscorsfonts-installer. Verifier qu'avec -y et --force-yes ca passe
+
+wget http://c758482.r82.cf2.rackcdn.com/Sublime%20Text%202.0.2.tar.bz2
+tar xf Sublime\ Text\ 2.0.2.tar.bz2
+sudo mv Sublime\ Text\ 2 /opt/
+sudo ln -s /opt/Sublime\ Text\ 2/sublime_text /usr/bin/sublime
+sudo echo "[Desktop Entry]
+Version=1.0
+Name=Sublime Text 2
+# Only KDE 4 seems to use GenericName, so we reuse the KDE strings.
+# From Ubuntu's language-pack-kde-XX-base packages, version 9.04-20090413.
+GenericName=Text Editor
+
+Exec=sublime
+Terminal=false
+Icon=/opt/Sublime Text 2/Icon/48x48/sublime_text.png
+Type=Application
+Categories=TextEditor;IDE;Development
+X-Ayatana-Desktop-Shortcuts=NewWindow
+
+[NewWindow Shortcut Group]
+Name=New Window
+Exec=sublime -n
+TargetEnvironment=Unity" >> /usr/share/applications/sublime.desktop
+
