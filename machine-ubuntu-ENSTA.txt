@@ -1,59 +1,71 @@
 *Base : Ubuntu LTS desktop (gnome+unity) en cours
-C.A. ubuntu-14.04.2-desktop-i386
+C.A. ubuntu-14.04.2-desktop-i386 => 32bits
 
 *Utilitaires : 
-ssh, ssh-server
-stty
-git
-subversion
-sublime
-zsh (oh-my-zsh!)
-gtkterm
-VirtualBox
-wine
-nautilus-open-terminal
-guake (conf "²", S.Rohou)
-cmake
-ccmake
-cmake-gui
-gcc
-g++
-synaptic
-vlc
-filezilla
-diff
-python
-ffmpeg
-cheese #pour la visualisation webcam et camera usb, à tester avec Grabby/Grabbino (modprobe em28xx card=67 (ou autre chose que 67...)) etLogitech Webcam/Quickcam Pro 9000
-LibreOffice # on a besoin de Calc - ou autre tableur plus léger?)
-OpenCV 2.4.X # peut-on avoir 2 versions différentes et utiliser les 2 comme on veut et surtout facilement?
-libmodbus #support CISCREA
-samba smbfs nfs-common cifs #lecteurs réseaux
-valgrind
-OpenAL 1.1 SDK / free OpenAL # ??? pour faire de l'audio en C++ de manière assez simple et portable (FLB l'utilise plus ou moins sous Windows...)
-Audacity
-OLSRD # pour routage Wi-Fi en ad-hoc
-Google Earth
-Xsens SDK # ?
+OK|ssh
+OK|stty
+OK|git
+OK|subversion
+OK|sublime 3
+OK|zsh (oh-my-zsh!)
+OK|gtkterm
+OK|VirtualBox
+OK|wine
+OK|nautilus-open-terminal
+OK|guake (conf "²", S.Rohou)
+OK|cmake
+NO|ccmake (inconnu..)
+OK|cmake-gui
+OK|gcc
+OK|g++
+NO|synaptic | simon à abdiqué...
+OK|vlc
+OK|filezilla
+OK|diff| remplacé par diffutils
+OK|python
+NO|[ffmpeg] n'existe plus
+OK|cheese #pour la visualisation webcam et camera usb, à tester avec Grabby/Grabbino (modprobe em28xx card=67 (ou autre chose que 67...)) etLogitech Webcam/Quickcam Pro 9000
+OK|LibreOffice # on a besoin de Calc - ou autre tableur plus léger?)
+OK|samba smbfs nfs-common cifs #lecteurs réseaux | certains ont été remplacés mais on supporte tout ca
+OK|Google Earth
+OK|valgrind
+OK|Audacity
+OK|OLSRD # pour routage Wi-Fi en ad-hoc
+OK|libmodbus #support CISCREA
+OK|bison flex m4 libgtkglext1-dev libglut3-dev plib1.8.4-dev libgtk2.0-dev libncurses-dev | pour utiliser QUIMPER (qPave, qTraj, qSolve d'IBEX 1.X) # A discuter? Quimper n'est-il pas mort? | libglut3 remplacé par freeglut3-dev et plib remplacé par libplib-dev. Est-ce satisfaisant/nécessaire???
 
-bison flex m4 libgtkglext1-dev libglut3-dev plib1.8.4-dev libgtk2.0-dev libncurses-dev : pour utiliser QUIMPER (qPave, qTraj, qSolve d'IBEX 1.X) # A discuter? Quimper n'est-il pas mort?
-
-Java Development Kit # ?
-
-scilab/Matlab # ?
-
-*Serveurs :
-SMB, FTP, SSH, TELNET, VNC, RDP
+Ajout de gnome-session-fallback => pour les réticents à unity, à la fenetre de login, clickez sur la petite roue à coté du nom ("ensta" sur ces machines) et choisissez gnome, pour unity remettre default
 
 *Robotique : (voir script install VM TP MOOS S.Rohou)
-moos # Penser à mofifier MOOSLinuxSerialPort.cpp pour accepter le baudrate 57600 demandé par les modems tritech (https://github.com/themoos/core-moos/pull/16)
-moos-ivp
-ibex
-Eigen V3
-vibes
-morse box #comprend : python, morse, blender, scipy/numpy/matplotlib/opencv 3 python/pyIbex
-qtcreator(ftp://ftp.informatik.hu-berlin.de/pub/Linux/Qt/QT/qtsdk/qt-sdk-linux-x86_64-opensource-2010.05.bin)
+OK|moos # Penser à mofifier MOOSLinuxSerialPort.cpp pour accepter le baudrate 57600 demandé par les modems tritech (https://github.com/themoos/core-moos/pull/16)
+OK|moos-ivp
 
-*A enlever :
-Amazon # integration unity
-Unity # ? Sur ce point plusieurs écoles, @ FLB : je suis d'accord, unity lors de son lancement était vraiment NULL! Mais maintenant je m'y suis fait (14.04LTS) et ca passe bien... Point négociable ;)
+*Serveurs :
+SMB, FTP, SSH, TELNET, VNC, RDP | A configurer
+
+*RESTE A FAIRE : 
+
+OpenCV 2.4.X # peut-on avoir 2 versions différentes et utiliser les 2 comme on veut et surtout facilement?
+OpenAL 1.1 SDK / free OpenAL # ??? pour faire de l'audio en C++ de manière assez simple et portable (FLB l'utilise plus ou moins sous Windows...)
+Xsens SDK # ?
+
+NO|Java Development Kit # ?
+NO|scilab/Matlab # ?
+
+NO|ibex
+NO|Eigen V3
+NO|vibes
+NO|morse box #comprend : python, morse, blender, scipy/numpy/matplotlib/opencv 3 python/pyIbex
+NO|qtcreator(ftp://ftp.informatik.hu-berlin.de/pub/Linux/Qt/QT/qtsdk/qt-sdk-linux-x86_64-opensource-2010.05.bin)
+
+C.A. 19 Mai 2015
+
+Vous pouvez voir que j'ai ajouté un script post installation sur ce dépot. Ce script installe tous les soft marqués OK sur ce document. Pour le reste, on verra puisque le but est d'installer rapidement les machines des robots/bouées (donc pas trop de graphique (VIBES/MORSE/BLENDER par exemple))
+
+**Questions : 
+
+*OpenCV : Simon et Benoît pensent que la 2.4.8 est bien et que le code qu'on à est adapté. Saad est d'accord, moi je fais le mouton.
+@ FLB : la 2.4.8 c'est OK?
+@Jeremy : j'ai cru voir que la morsebox demande la version 3 d'opencv. Comme pour l'instant le but est d'avoir des PC "Robots" on ne va pas intégrer morse tout de suite. Est-ce que ce choix de la 2.4.8 te vas?
+
+*SDK XSENS : Quelle version? ils proposent une version 3.x mais disent bien qu'il va falloir adapter du code.

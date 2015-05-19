@@ -7,15 +7,15 @@ apt-get -y --force-yes update
 apt-get -y --force-yes upgrade
 
 #Install zsh with Clement Aubry config file, could be changed in ~/.zshrc
-apt-get install zsh git
+apt-get install zsh git git-core
 sudo -u ensta curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
 sudo -u ensta wget -O ~/.oh-my-zsh/themes/clemaubry.zsh-theme https://raw.githubusercontent.com/ClementAubry/MachineUnixEnstaBzh/master/clemaubry.zsh-theme
 sudo -u ensta sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="clemaubry' ~/.zshrc
 
 # install apps, may require some interactions... (wine and it's dependencies)
 apt-get -y --force-yes install \
-    ssh guake cmake cmake-qt-gui gcc g++ vlc \
-    subversion gtkterm nautilus-open-terminal \
+    ssh guake cmake cmake-qt-gui gcc g++ vlc build-essential\
+    subversion gtkterm nautilus-open-terminal libusb-1.0-0-dev\
     filezilla cheese libmodbus5 libmodbus-dev \
     cifs-utils nfs-common valgrind audacity olsrd olsrd-gui \
     bison flex libgtkglext1-dev freeglut3-dev libplib-dev \
@@ -34,10 +34,30 @@ dpkg -i googleearth*.deb
 apt-get -f install
 
 #Install moos and moos-ivp
-sudo -u ensta svn co https://oceanai.mit.edu/svn/moos-ivp-aro/releases/moos-ivp-14.7.1 moos-ivp
-sudo -u ensta cd moos-ivp
-sudo -u ensta ./build-moos.sh
-sudo -u ensta ./build-ivp.sh
-sudo -u ensta cd
 
+#reglages proxy pour svn : dans ~/.subversion/servers
+#[global]
+#http-proxy-host = 192.168.1.17
+#http-proxy-port = 8080
+# ou on met les options dans la commande => A TESTER!!
 
+sudo -u ensta svn co --config-option servers:global:http-proxy-host=192.168.1.17 \
+					 --config-option servers:global:http-proxy-port=8080 \
+					https://oceanai.mit.edu/svn/moos-ivp-aro/releases/moos-ivp-14.7.1 moos-ivp
+cd ./moos-ivp
+# Si version moos-ivp < 15
+# Penser à mofifier MOOSLinuxSerialPort.cpp pour accepter le baudrate 57600 demandé par les modems tritech (https://github.com/themoos/core-moos/pull/16)
+# il faut ajouter la ligne [    case 57600:     nLinuxBaudRate = B57600;  break;] après la ligne [    case 19200:     nLinuxBaudRate = B19200;  break;]
+sudo -u ensta ./build-moos.sh -j8 # -j8 pour travailler sur 8 coeurs
+sudo -u ensta ./build-ivp.sh -j8
+cd ../
+
+#Labjack exodrivers
+sudo -u ensta git config --global http.proxy http://192.168.1.17:8080
+sudo -u ensta git clone git://github.com/labjack/exodriver.git
+cd ./exodriver/
+./install.sh
+cd ../
+
+#Droits sur les tty, manière propre!
+addgroup dialout ensta
