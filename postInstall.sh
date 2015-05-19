@@ -34,10 +34,10 @@ dpkg -i googleearth*.deb
 apt-get -f install
 
 #Install moos and moos-ivp
-svn co https://oceanai.mit.edu/svn/moos-ivp-aro/releases/moos-ivp-14.7.1 moos-ivp
-cd moos-ivp
-./build-moos.sh
-./build-ivp.sh
-cd
+sudo -u ensta svn co https://oceanai.mit.edu/svn/moos-ivp-aro/releases/moos-ivp-14.7.1 moos-ivp
+sudo -u ensta cd moos-ivp
+sudo -u ensta ./build-moos.sh
+sudo -u ensta ./build-ivp.sh
+sudo -u ensta cd
 
 
